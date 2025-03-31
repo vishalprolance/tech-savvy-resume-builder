@@ -7,12 +7,18 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import ProfileHeader from "@/components/ProfileHeader";
 import ContactInfo from "@/components/ContactInfo";
 import SocialLinks from "@/components/SocialLinks";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("about");
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-background to-background/50 transition-colors duration-300">
+      {/* Theme Toggle */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+        <ThemeToggle />
+      </div>
+
       {/* Hero Section with Profile */}
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
         <div className="container px-4 md:px-6">
@@ -68,12 +74,12 @@ const Index = () => {
       </section>
 
       {/* Placeholder for future sections */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-card">
         <div className="container px-4 md:px-6">
           <div className="mx-auto flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Coming Soon</h2>
-              <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 More details about my career, projects, and skills will be added here soon.
               </p>
             </div>
