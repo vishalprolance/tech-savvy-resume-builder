@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Tool } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface SkillsSectionProps {
@@ -11,7 +11,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ className }) => {
   return (
     <Card className={className}>
       <CardHeader className="flex flex-row items-center gap-2">
-        <Tool className="h-5 w-5" />
+        <Wrench className="h-5 w-5" />
         <CardTitle>Skills</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
