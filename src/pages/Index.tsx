@@ -4,10 +4,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { ArrowDown } from "lucide-react";
 import ProfileHeader from "@/components/ProfileHeader";
 import ContactInfo from "@/components/ContactInfo";
 import SocialLinks from "@/components/SocialLinks";
 import ThemeToggle from "@/components/ThemeToggle";
+import ExperienceSection from "@/components/ExperienceSection";
+import SkillsSection from "@/components/SkillsSection";
+import CertificationsSection from "@/components/CertificationsSection";
+import EducationSection from "@/components/EducationSection";
+import PublicationSection from "@/components/PublicationSection";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("about");
@@ -20,7 +26,7 @@ const Index = () => {
       </div>
 
       {/* Hero Section with Profile */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+      <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
             <div className="flex flex-col justify-center space-y-4">
@@ -43,6 +49,7 @@ const Index = () => {
                   className="w-full sm:w-auto"
                   onClick={() => window.open("/resume.pdf", "_blank")}
                 >
+                  <ArrowDown className="h-4 w-4 mr-2" />
                   Download Resume
                 </Button>
                 <Button 
@@ -53,6 +60,13 @@ const Index = () => {
                   Contact Me
                 </Button>
               </div>
+
+              <p className="text-muted-foreground mt-4">
+                Result-oriented Cloud & DevOps Engineer with 4+ years of experience in AWS, Azure, and GCP, specializing in 
+                DevOps/DevSecOps maturity, cloud solution designer, and infrastructure optimization. Proficient in AWS services 
+                and CI/CD. Experienced in designing, implementing, and managing cloud-native DevOps pipelines. Adept at 
+                Generative AI technologies to enhance application capabilities.
+              </p>
             </div>
             
             <div className="mx-auto lg:mx-0 flex items-center justify-center">
@@ -73,16 +87,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Placeholder for future sections */}
+      {/* Resume Content Sections */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-card">
         <div className="container px-4 md:px-6">
-          <div className="mx-auto flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Coming Soon</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                More details about my career, projects, and skills will be added here soon.
-              </p>
-            </div>
+          <div className="mx-auto grid gap-8 md:gap-12">
+            <CertificationsSection />
+            <ExperienceSection />
+            <SkillsSection />
+            <EducationSection />
+            <PublicationSection />
           </div>
         </div>
       </section>
