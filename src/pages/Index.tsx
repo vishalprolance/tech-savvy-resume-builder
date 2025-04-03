@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import ProfileHeader from "@/components/ProfileHeader";
 import ContactInfo from "@/components/ContactInfo";
 import SocialLinks from "@/components/SocialLinks";
@@ -17,6 +17,16 @@ import PublicationSection from "@/components/PublicationSection";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("about");
+
+  const handleDownloadResume = () => {
+    // Create an anchor element and set properties for download
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // PDF should be placed in the public folder
+    link.download = 'VishalAKer_Resume.pdf'; // Suggested filename when downloading
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/50 transition-colors duration-300">
@@ -47,9 +57,9 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <Button 
                   className="w-full sm:w-auto"
-                  onClick={() => window.open("/resume.pdf", "_blank")}
+                  onClick={handleDownloadResume}
                 >
-                  <ArrowDown className="h-4 w-4 mr-2" />
+                  <Download className="h-4 w-4 mr-2" />
                   Download Resume
                 </Button>
                 <Button 
